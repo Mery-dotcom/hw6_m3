@@ -21,20 +21,20 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.button?.setOnClickListener {
-            openSecondFragment()
+            openContinentsFragment()
         }
     }
 
-    private fun openSecondFragment() {
+    private fun openContinentsFragment() {
         val counter = 0
         val bundle = Bundle().apply {
             putInt("counter", counter)
         }
-        val secondFragment = ContinentsFragment().apply {
+        val continentsFragment = ContinentsFragment().apply {
             arguments = bundle
         }
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view, secondFragment)
+            .replace(R.id.fragment_container_view, continentsFragment)
             .commit()
     }
 
