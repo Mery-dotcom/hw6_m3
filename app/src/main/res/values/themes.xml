@@ -3,6 +3,8 @@
     <style name="Base.Theme.Hw6_m3" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#E7E5E5</item>
     </style>
 
     <style name="Theme.Hw6_m3" parent="Base.Theme.Hw6_m3" />
