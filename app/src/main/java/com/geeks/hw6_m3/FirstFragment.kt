@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.geeks.hw6_m3.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
@@ -33,9 +34,8 @@ class FirstFragment : Fragment() {
         val continentsFragment = ContinentsFragment().apply {
             arguments = bundle
         }
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view, continentsFragment)
-            .commit()
+        val action = FirstFragmentDirections.actionFirstFragment3ToContinentsFragment2()
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

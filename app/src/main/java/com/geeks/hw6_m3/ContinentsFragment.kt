@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.geeks.hw6_m3.databinding.FragmentContinentsBinding
 import com.geeks.hw6_m3.databinding.FragmentCountryBinding
 
@@ -70,16 +71,20 @@ class ContinentsFragment : Fragment() {
     }
 
     fun onClick(position: Int) {
-        val bundle = Bundle().apply {
-            putInt("cont", position)
-        }
-        val countryFragment = CountryFragment().apply {
-            arguments = bundle
-        }
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view, countryFragment)
-            .addToBackStack(null)
-            .commit()
+//        val bundle = Bundle().apply {
+//            putInt("cont", position)
+//        }
+//        val countryFragment = CountryFragment().apply {
+//            arguments = bundle
+//        }
+//        requireActivity().supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container_view, countryFragment)
+//            .addToBackStack(null)
+//            .commit()
+        val name = continents[position].name
+        val image = continents[position].image
+        val action = ContinentsFragmentDirections.actionContinentsFragment2ToCountryFragment2(name, image)
+        findNavController().navigate(action)
     }
 
 

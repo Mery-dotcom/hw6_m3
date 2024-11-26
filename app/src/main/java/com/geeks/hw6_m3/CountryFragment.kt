@@ -27,6 +27,8 @@ class CountryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvCountry.adapter = adapter
         position = arguments?.getInt("cont") ?: 0
+        val args = CountryFragmentArgs.fromBundle(requireArguments())
+        binding.textView.text = args.name
 
         when (position) {
             0 -> loadAsia()
@@ -40,6 +42,7 @@ class CountryFragment : Fragment() {
     }
 
     private fun loadAsia() {
+        countries.clear()
         val listKyrgyzstan = arrayListOf(
             Continent("Bishkek", "https://too.kg/wp-content/uploads/original_bishkek_photo_hdzugvz-e1523868725389.jpg"),
             Continent("Osh", "https://too.kg/en/wp-content/uploads/DSC_0576-1024x681.jpg"),
@@ -68,6 +71,7 @@ class CountryFragment : Fragment() {
     }
 
     private fun loadAmerica() {
+        countries.clear()
         val listArgentina = arrayListOf(
             Continent("Buenos Aires", "https://cdn.tripster.ru/thumbs2/732b95e8-e8e6-11ee-b1b1-befc76184d1e.1220x600.jpeg"),
             Continent("Mendoza", "https://www.quinta.ru/upload/iblock/062/w3vfycqqb34981bfrdz38a1pknp101r9/Argentina%20Mendoza.jpg"),
@@ -96,6 +100,7 @@ class CountryFragment : Fragment() {
     }
 
     private fun loadAustralia() {
+        countries.clear()
         val listAustralia = arrayListOf(
             Continent("Melbourne", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGlLatM-kX9UbyHJhNviWksLYvw0Cto7QiaQ&s"),
             Continent("Sydney", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCr4RPaMlmiMMYaThlff5QBMMcaZyN20UVqw&s"),
@@ -110,6 +115,7 @@ class CountryFragment : Fragment() {
     }
 
     private fun loadEurope() {
+        countries.clear()
         val listLondon = arrayListOf(
             Continent("Edinburgh", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKb0HwUN5WiMqst4BFf2UUtSwTBqLhQzeOyw&s"),
             Continent("Islington", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJblurE_n1Zsna0j4kcQEdBExXDxRFhbNqoQ&s"),
@@ -138,6 +144,7 @@ class CountryFragment : Fragment() {
     }
 
     private fun loadAfrica() {
+        countries.clear()
         val listAlgeria = arrayListOf(
             Continent("Algiers", "https://cms.enjourney.ru/upload/Jana/Algeria/Algiers/Al6.jpg"),
             Continent("Oran", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7SPsvuXNGSHceCZ-djsaHKB6sbedVfA1IIw&s"),
@@ -173,8 +180,4 @@ class CountryFragment : Fragment() {
         continentAdapter.loadData(countries[position].cities)
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        binding = null
-//    }
 }
